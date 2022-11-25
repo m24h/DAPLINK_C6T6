@@ -413,8 +413,8 @@ void BoardInit(void)
 	// Enable GPIOA-GPIOC
 	RCC->APB2ENR |= (RCC_APB2ENR_AFIOEN | RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPCEN);
 
-	// Enable SWJ only
-	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
+	// Full SWJ Disabled (JTAG-DP + SW-DP) 
+	GPIO_PinRemapConfig(GPIO_Remap_SWJ_Disable, ENABLE);
 
 	GPIO_INIT(GPIOA, INIT_PINS_A);
 	GPIO_INIT(GPIOB, INIT_PINS_B);
