@@ -4,8 +4,8 @@ HSE of STM32 is a 8MHz oscillator oscillator.
 The hardware GPIO pins (which can be modifed in file "DAP_config.h"):
     A9: serial TX
     A10: serial RX
-    A2: SWDIO
-    A4: SWCLK
+    SWDIO: SWDIO
+    SWCLK: SWCLK
     A6: nRESET
     B8: Connected LED
     B12: Target Running LED
@@ -22,3 +22,8 @@ Important: this is a Keil MDK5 project, but a compiler version 5 (ARMCC) is need
 4，原工程USBlib使用lib，但是提供了一份源码，为了完全开源我们改用源码编译，其中部分inline导致无法编译，已去除。
 5，那个USBlib库不兼容GD等国产单片机，请老实花钱购买正常STM32芯片。
 6，电路图就是常见的老古董STLINK2.0，还能刷JLINK OB的那种。我晶振是12M，用8M自行修改。
+
+修改 by：hianiong
+1，修改SWDIO 和 SWCLK 到最小系统板后面默认SWDIO和SWCLK针脚
+2，刷完daplink后如果要通过SWD恢复到其他固件，必须把boot0 接 VCC，或通过串口下载
+3，我是8M晶振，测试可以直接使用不用修改
